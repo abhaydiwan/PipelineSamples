@@ -1,10 +1,5 @@
-@Library('pipeline-library-demo')_
-node {
-    stage("stage 1") {
-        echo 'Hello World'
-        sayHello 'Abhay'
+@Library("pipeline-library-demo") _
+    standardPipeline {
+        projectName = "Project1"
+        serverDomain = "Project1 Server Domain"
     }
-    stage("stage 2") {
-        echo "We are at stage 2!"
-    }
-}
