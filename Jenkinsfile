@@ -3,7 +3,7 @@ node {
     stage("stage 1") {
         echo 'Hello World'
         sayHello 'Abhay'
-        readYaml()
+        readYaml('/tmp/repoValid.yml')
         getBuildInfo() 
     }
     stage("stage 2") {
