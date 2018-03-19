@@ -1,4 +1,2 @@
 ---
-repositories:
-  NPM:
-    type: npm
+something: 'Override'
