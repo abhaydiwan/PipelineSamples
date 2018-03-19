@@ -3,8 +3,10 @@ node {
     stage("stage 1") {
         echo 'Hello World'
         sayHello 'Abhay'
+       script {
         def datas = readYaml file: 'repoValid.yaml'
         echo "Got version as ${datas.something} "
+       }
         readYaml
         getBuildInfo 
     }
