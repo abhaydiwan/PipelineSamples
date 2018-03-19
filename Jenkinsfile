@@ -3,6 +3,7 @@ node {
     stage("stage 1") {
         echo 'Hello World'
         sayHello 'Abhay'
+        readYaml
         getBuildInfo 
     }
     stage("stage 2") {
