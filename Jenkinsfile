@@ -10,7 +10,7 @@ node {
         echo "We are at stage 2!"
     }
     
-    node('Fetch password details') {
+    stage('Fetch password details') {
 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '5bff3281-3406-4583-ac11-df0adb43f6c9',
 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 
