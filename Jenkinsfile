@@ -1,3 +1,4 @@
+import groovy.json.JsonSlurper
 @Library('pipeline-library-demo')_
 node {
     stage("stage 1") {
