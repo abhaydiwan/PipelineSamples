@@ -10,7 +10,7 @@ node {
     }
     
     stage('Fetch password details') {
-withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '5bff3281-3406-4583-ac11-df0adb43f6c9',
+withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939',
 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
 println(env.USERNAME)
 sh 'echo uname=$USERNAME pwd=$PASSWORD'
