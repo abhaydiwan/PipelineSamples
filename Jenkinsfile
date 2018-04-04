@@ -29,7 +29,7 @@ node {
                 short_description: 'My change order approved',
                 description: 'My longer description of the change'
         ])
-  def response = serviceNow_UpdateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
+  def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
     }
   
  stage("Deployment in Prod Starts") {
@@ -43,7 +43,7 @@ node {
                 short_description: 'My change order is closed',
                 description: 'My longer description of the change'
         ])
-  def response = serviceNow_UpdateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJson.toString()]
+  def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJson.toString()]
     }
     
 }
