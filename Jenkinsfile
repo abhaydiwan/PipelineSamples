@@ -20,7 +20,7 @@ node {
    
   
   stage('Deploy approval'){
-       input ('Update Change Request'
+       input 'Update Change Request'
     }
   
   stage("Update Change Request") {
