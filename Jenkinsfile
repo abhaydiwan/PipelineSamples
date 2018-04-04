@@ -17,7 +17,7 @@ node {
      //sysIdRes = createResponse.result.sys_id
     sysIdRes = '70d50fc54f9113000216224f9310c7a3'
     
-    def response = serviceNow_UpdateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [sysId: sysIdRes]
+    def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [sysId: sysIdRes]
     echo response //NEW
     }
    
