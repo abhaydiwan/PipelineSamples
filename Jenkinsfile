@@ -19,10 +19,10 @@ node {
    
   
   stage('Deploy approval'){
-       input "update change request?"
+       input 'Update Change Request'
     }
   
-  stage("update change request") {
+  stage("Update Change Request") {
     def messageJsonUpdate = new JSONObject()
       messageJsonUpdate.putAll([
                 short_description: 'My change order approved',
@@ -33,11 +33,10 @@ node {
   
  stage("Deployment in Prod Starts") {
         echo "We are going to deploy it in Prod"
-    }    
-  stage('Close Change Request'){
-       input "close change request?"
-    }
-  stage("close change request") {
+        input "Close Change Request"
+     
+ }    
+    stage("Close Change Request") {
     def messageJson = new JSONObject()
       messageJson.putAll([
                 short_description: 'My change order is closed',
