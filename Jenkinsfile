@@ -1,5 +1,5 @@
 import groovy.json.JsonSlurper
-import groovy.json.JsonObject
+import groovy.json.JSONObject
 @Library('pipeline-library-demo')_
 
 node {
