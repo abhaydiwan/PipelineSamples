@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 import net.sf.json.JSONObject
 @Library('pipeline-library-demo')_
-
+def sysIdRes = ''
 node {
   
     stage("Deployment in QA Starts") {
@@ -14,12 +14,13 @@ node {
     def createResponse = jsonSlurper.parseText(response.content)
     print 'createResponse' + createResponse
     def changeNumber = createResponse.result.number
-    def sysIdRes = createResponse.result.sys_id
+     sysIdRes = createResponse.result.sys_id
+     
     }
    
   
   stage('Deploy approval'){
-       input 'Update Change Request'
+       input ('Update Change Request'
     }
   
   stage("Update Change Request") {
