@@ -21,12 +21,12 @@ node {
     }
   
   stage("update change request") {
-    def messageJson = new JSONObject()
-      messageJson.putAll([
+    def messageJsonUpdate = new JSONObject()
+      messageJsonUpdate.putAll([
                 short_description: 'My change order approved',
                 description: 'My longer description of the change'
         ])
-  def response = serviceNow_UpdateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: '5bff3281-3406-4583-ac11-df0adb43f6c9', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJson.toString()]
+  def response = serviceNow_UpdateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: '5bff3281-3406-4583-ac11-df0adb43f6c9', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
     }
   
  stage("Deployment in Prod Starts") {
