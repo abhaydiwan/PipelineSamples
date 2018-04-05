@@ -10,7 +10,7 @@ node {
         sh '''#!/bin/bash
          cd /var/lib/jenkins/workspace/ServiceNowSample2/qa
           terraform init
-          terraform plan
+          terraform plan -input=false 
           terraform apply -input=false 
         
      '''
@@ -47,8 +47,8 @@ node {
      sh '''#!/bin/bash
          cd /var/lib/jenkins/workspace/ServiceNowSample2/prod
           terraform init
-          terraform plan
-          terraform apply -input=false tfplan
+          terraform plan -input=false 
+          terraform apply -input=false 
         
      '''
  }    
