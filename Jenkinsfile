@@ -9,9 +9,9 @@ node {
         echo "We are going to deploy it in QA"
        sh '''#!/bin/bash
          cd /var/lib/jenkins/workspace/ServiceNowSample2/qa
-        ./terraform init
-        ./terraform plan
-        ./terraform apply
+          terraform init
+          terraform plan
+          terraform apply
         
      '''
 }
