@@ -5,7 +5,7 @@ def sysIdRes = ''
 node {
   
     stage("Deployment in QA Starts") {
-        scm checkout
+        git branch: ' PreApprovedRelease2', url: 'https://github.com/abhaydiwan/PipelineSamples.git'
         echo "We are going to deploy it in QA"
     }
     
