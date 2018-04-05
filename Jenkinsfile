@@ -11,7 +11,7 @@ node {
          cd /var/lib/jenkins/workspace/ServiceNowSample2/qa
           terraform init
           terraform plan
-          terraform apply -input=false tfplan
+          terraform apply -input=false 
         
      '''
 }
