@@ -5,6 +5,7 @@ def sysIdRes = ''
 node {
   
     stage("Deployment in QA Starts") {
+        scm checkout
         echo "We are going to deploy it in QA"
     }
     
