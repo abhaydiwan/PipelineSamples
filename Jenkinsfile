@@ -15,9 +15,6 @@ node {
     print 'createResponse' + createResponse
     def changeNumber = createResponse.result.number
     sysIdRes = createResponse.result.sys_id
-    
-    def responseState = serviceNow_updateChangeState serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [sysId: sysIdRes]
-    print 'responseState' + responseState //NEW
     }
    
   
@@ -29,10 +26,12 @@ node {
     def messageJsonUpdate = new JSONObject()
       messageJsonUpdate.putAll([
                 short_description: 'My change order approved',
-                description: 'My longer description of the change'
+                description: 'My longer description of the change',
+                state: 3  
         ])
-  def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
-    }
+  def responseUpdate = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
+  print 'responseUpdate' +responseUpdate 
+  }
   
  stage("Deployment in Prod Starts") {
         echo "We are going to deploy it in Prod"
@@ -43,7 +42,8 @@ node {
     def messageJson = new JSONObject()
       messageJson.putAll([
                 short_description: 'My change order is closed',
-                description: 'My longer description of the change'
+                description: 'My longer description of the change',
+                state: 4
         ])
   def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJson.toString()]
     }
