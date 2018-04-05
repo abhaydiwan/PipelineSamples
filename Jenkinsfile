@@ -7,11 +7,11 @@ node {
     stage("Deployment in QA Starts") {
         git branch: 'PreApprovedRelease2', url: 'https://github.com/abhaydiwan/PipelineSamples.git'
         echo "We are going to deploy it in QA"
-       sh '''#!/bin/bash
+        sh '''#!/bin/bash
          cd /var/lib/jenkins/workspace/ServiceNowSample2/qa
           terraform init
           terraform plan
-          terraform apply
+          terraform apply -input=false tfplan
         
      '''
 }
@@ -44,7 +44,13 @@ node {
  stage("Deployment in Prod Starts") {
         echo "We are going to deploy it in Prod"
         input "Close Change Request"
-     
+     sh '''#!/bin/bash
+         cd /var/lib/jenkins/workspace/ServiceNowSample2/prod
+          terraform init
+          terraform plan
+          terraform apply -input=false tfplan
+        
+     '''
  }    
     stage("Close Change Request") {
     def messageJson = new JSONObject()
