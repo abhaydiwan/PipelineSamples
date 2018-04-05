@@ -16,7 +16,7 @@ node {
     //def changeNumber = createResponse.result.number
     //sysIdRes = createResponse.result.sys_id
     sysIdRes = '2baf5c994f5513000216224f9310c7a7'
-    def responseState = serviceNow_getChangeState serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [sysId: sysIdRes]
+    def responseState = serviceNow_getChangeState serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [sysId: '2baf5c994f5513000216224f9310c7a7']
     //print 'responseState' + responseState //NEW
     }
    
