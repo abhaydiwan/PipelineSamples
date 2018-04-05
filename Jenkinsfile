@@ -7,7 +7,14 @@ node {
     stage("Deployment in QA Starts") {
         git branch: 'PreApprovedRelease2', url: 'https://github.com/abhaydiwan/PipelineSamples.git'
         echo "We are going to deploy it in QA"
-    }
+       sh '''#!/bin/bash
+         cd /var/lib/jenkins/workspace/ServiceNowSample2/qa
+        ./terraform init
+        ./terraform plan
+        ./terraform apply
+        
+     '''
+}
     
   stage("create change request") {
     def response = serviceNow_createChange serviceNowConfiguration: [instance: 'dev53461', producerId: '33a646a24f8113000216224f9310c723'], credentialsId:'ad2298b0-fe86-4f89-9810-62360cc19939'
