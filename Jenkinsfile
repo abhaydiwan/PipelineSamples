@@ -25,9 +25,9 @@ node {
   stage("Update Change Request") {
     def messageJsonUpdate = new JSONObject()
       messageJsonUpdate.putAll([
-                short_description: 'My change order approved',
+                short_description: 'My change order approved and in implemntation phase',
                 description: 'My longer description of the change',
-                state: '3'  
+                state: '-1'  
         ])
   def responseUpdate = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
   print 'responseUpdate' +responseUpdate 
@@ -43,7 +43,7 @@ node {
       messageJson.putAll([
                 short_description: 'My change order is closed',
                 description: 'My longer description of the change',
-                state: '4'
+                state: '3'
         ])
   def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev53461'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJson.toString()]
     }
