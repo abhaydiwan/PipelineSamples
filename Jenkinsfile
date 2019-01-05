@@ -9,7 +9,7 @@ node {
     }
     
   stage("create change request") {
-    def response = serviceNow_createChange serviceNowConfiguration: [instance: 'dev29813', producerId: '33a646a24f8113000216224f9310c723'], credentialsId:'servicenow'
+    def response = serviceNow_createChange serviceNowConfiguration: [instance: 'dev29813', producerId: 'e99c38f1db3e230093f778eebf961937'], credentialsId:'servicenow'
     def jsonSlurper = new JsonSlurper()
     def createResponse = jsonSlurper.parseText(response.content)
     print 'createResponse' + createResponse
