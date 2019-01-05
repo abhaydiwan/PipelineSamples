@@ -9,7 +9,7 @@ node {
     }
     
   stage("create change request") {
-    def response = serviceNow_createChange serviceNowConfiguration: [instance: 'dev29813', producerId: '33a646a24f8113000216224f9310c723'], credentialsId:'ad2298b0-fe86-4f89-9810-62360cc19939'
+    def response = serviceNow_createChange serviceNowConfiguration: [instance: 'dev29813', producerId: '33a646a24f8113000216224f9310c723'], credentialsId:'servicenow'
     def jsonSlurper = new JsonSlurper()
     def createResponse = jsonSlurper.parseText(response.content)
     print 'createResponse' + createResponse
@@ -29,7 +29,7 @@ node {
                 description: 'My longer description of the change'
                 
         ])
-  def responseUpdate = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev29813'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
+  def responseUpdate = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev29813'], credentialsId: 'servicenow', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJsonUpdate.toString()]
   print 'responseUpdate' +responseUpdate 
   }
   
@@ -45,7 +45,7 @@ node {
                 description: 'My longer description of the change'
                 
         ])
-  def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev29813'], credentialsId: 'ad2298b0-fe86-4f89-9810-62360cc19939', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJson.toString()]
+  def response = serviceNow_updateChangeItem serviceNowConfiguration: [instance: 'dev29813'], credentialsId: 'servicenow', serviceNowItem: [table: 'change_request', sysId: sysIdRes, body: messageJson.toString()]
     }
     
 }
