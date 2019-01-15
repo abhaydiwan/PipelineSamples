@@ -6,7 +6,7 @@ stages{
         agent any
         steps{
            
-            runDocker('','',"/usr/bin/local/terraform --version")   
+            runDocker('','',"ansible --version")   
         }
      }
   }
