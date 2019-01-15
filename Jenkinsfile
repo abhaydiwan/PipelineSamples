@@ -1,6 +1,6 @@
 @Library("pipeline-library-demo") _
 pipeline {
-agnet any
+agent any
 stages{
     stage('Execute ansible command'){
         agent any
