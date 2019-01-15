@@ -2,11 +2,22 @@
 pipeline {
 agent any
 stages{
+    stage('Execute python command'){
+        agent any
+        steps{
+            runDocker('','',"python --version")   
+        }
+     }
     stage('Execute ansible command'){
         agent any
         steps{
-           
-            runDocker('','',"python --version")   
+            runDocker('','',"ansible --version")   
+        }
+     }
+    stage('Execute terraform command'){
+        agent any
+        steps{
+            runDocker('','',"terraform --version")   
         }
      }
   }
