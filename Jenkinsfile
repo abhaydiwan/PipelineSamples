@@ -6,7 +6,7 @@ stages{
         agent any
         steps{
            
-            runDocker('','',"terraform --version")   
+            runDocker('','',"/usr/bin/local/terraform --version")   
         }
      }
   }
