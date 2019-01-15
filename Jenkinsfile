@@ -3,8 +3,11 @@ pipeline {
 agnet any
 stages{
     stage('Execute ansible command'){
-        runDocker('','',"ansible --version")   
-       
+        agent any
+        steps{
+           
+            runDocker('','',"ansible --version")   
+        }
      }
   }
 }
