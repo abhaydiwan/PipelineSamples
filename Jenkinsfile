@@ -6,7 +6,7 @@ stages{
         agent any
         steps{
            
-            runDocker('','',"ansible --version")   
+            runDocker('','',"python --version")   
         }
      }
   }
