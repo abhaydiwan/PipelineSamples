@@ -1,5 +1,7 @@
 @Library("pipeline-library-demo") _
-    standardPipeline {
-        projectName = "Project1"
-        serverDomain = "Project1 Server Domain"
-    }
+    stages{
+    stage('Execute ansible command'){
+        runDocker('','',"ansible --version")   
+       
+     }
+  }
