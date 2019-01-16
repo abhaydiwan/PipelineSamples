@@ -1,3 +1,3 @@
 terraform{
-terraformEnvDir="\nterraform"
+terraformEnvDir="\nabc\terraform"
 }
