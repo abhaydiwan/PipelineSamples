@@ -1,3 +1,3 @@
 terraform{
-terraformEnvDir=\n\terraform
+terraformEnvDir="\nterraform"
 }
